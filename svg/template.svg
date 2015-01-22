@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE svg 
+[
+<!ENTITY username "MikloBit">
+<!ENTITY circle_cx "100">
+<!ENTITY circle_cy "100">
+<!ENTITY circle_r "50">
+<!ENTITY circle_fill "red"> 
+]>
+ 
+<svg width="210" height="210" viewBox="0 0 210 210" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- svg template (CC-BY-SA) FTFshop.eu 2015,  contact: shop@ftfshop.eu -->
+  <circle id="svg_circle" cx="&circle_cx;" cy="&circle_cy;" r="&circle_r;" fill="&circle_fill;" stroke="black">
+  </circle>
+</svg>
