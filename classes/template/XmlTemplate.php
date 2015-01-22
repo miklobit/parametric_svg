@@ -6,13 +6,15 @@ class XmlTemplate {
     protected $dom;  
     protected $xml;
     protected $mimeType;
+    protected $compressionLevel; // gizp compreesion level, 0 = no compression
    
    
     function __construct() {
 
            $this->xml = '';
            $this->dom = new \DOMDocument();
-           $this->setMimeType( "application/xml" ) ;           
+           $this->setMimeType( "application/xml" ) ;   
+           $this->setCompression( 0 );
     }           
    
     public function loadFromFile(  $uri ) {
@@ -65,14 +67,35 @@ class XmlTemplate {
             return  $this->loadFromXml( $this->xml , $options ) ;
              
     }
+
+    public function setCompression( $compressionLevel = 0 ) {
+        $this->compressionLevel = $compressionLevel ;
+    }   
     
     public function setMimeType( $mimeType ) {
         $this->mimeType = $mimeType ;
     }
     
     public function sendMimeHeader( ) {
-        $this->mimeType = $mimeType ;
-    }    
+          header('Content-type: '.$this->mimeType);
+    }  
+    
+    public function sendEncodingHeader( ) {
+          if( $this->compressionLevel > 0 ) {
+            header('Content-Encoding: gzip', true);
+          }
+    }        
+    
+    public function pushXmlFile( ) {
+        $this->sendEncodingHeader( );
+        $this->sendMimeHeader( );
+        if( $this->compressionLevel == 0 ) {
+            echo $this->getXml( );
+        }
+        else {
+            echo gzencode($this->getXml( ), $this->compressionLevel );
+        }
+    }
     
     
 }
