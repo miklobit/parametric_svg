@@ -13,7 +13,8 @@
 //  var_dump( $_GET );
   
   $entityList = array( "circle_cy" => "150" ,
-                       "circle_fill" => "yellow"  
+                       "circle_fill" => "gray" , 
+                       "circle_stroke" => "blue" 
   );
   $template->decodeEntityList( $entityList , true );
   $template->pushXmlFile( );
