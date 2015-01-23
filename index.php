@@ -1,13 +1,12 @@
 <?php
-  use classes\template\XmlTemplate as XmlTemplate; 
+  use classes\template\SvgTemplate as SvgTemplate; 
   require_once "./bootstrap.php" ;
 //  header('Content-type: text/plain');
   
   ini_set('display_errors', '1');
 
-  $template = new XmlTemplate(); 
-  $template->loadFromFile("./svg/template.svg");
-  $template->setMimeType("image/svg+xml");
+  $template = new SvgTemplate(); 
+  $template->loadFromFile("./svg/template1.svg");
   $template->setCompression( 0 ) ;  
 //  var_dump( $template->getEntityList() );
 //  var_dump( $_GET );
